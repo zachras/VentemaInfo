@@ -8,8 +8,9 @@ index.html      Home: what Ventema does, and why a farmer would want it.
 support.html    Support URL. Contact, FAQ, how to file a bug.
 privacy.html    Privacy Policy URL.
 assets/
-  styles.css    The design system, ported from the app.
-  mark.svg      Wordmark and favicon.
+  styles.css            The design system, ported from the app.
+  mark.svg              Wordmark and favicon.
+  apple-touch-icon.png  Home-screen icon, 180x180.
 ```
 
 No build step, no dependencies, no JavaScript. Open a file, or serve the
@@ -39,6 +40,17 @@ Both light and dark values come from `VentemaColor.dynamic(light:dark:)`; the
 page follows the reader's system appearance the same way the app does. **If a
 colour changes in the Swift file, change it here too** — these are two copies
 of one palette.
+
+## The icon
+
+`assets/mark.svg` is the app icon, rebuilt from
+`VentemaApp/Ventema/App.icon`: the two leaf paths come from
+`Assets/ventema-leaves.svg` and the dark green field from the gradient in
+`icon.json` (`#004200` to `#004300`). `apple-touch-icon.png` is the same
+artwork, full-bleed and square, because iOS applies its own mask to it.
+
+App.icon is the original; this is a copy for the web. **If the icon changes
+there, regenerate both files here.**
 
 ## Before it goes live
 
