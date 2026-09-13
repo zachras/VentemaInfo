@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Ventema">
+  <rect width="32" height="32" rx="7.5" fill="#5F7233"/>
+  <g fill="none" stroke="#F7F3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 25c0-7.5 3.8-13 11-16"/>
+    <path d="M13.6 16.2c-1.9-2.4-1.6-5.2.6-6.9 2.2-1.7 5-1.3 6.4 1.1-2 1.9-4.7 2.4-7 5.8z"/>
+  </g>
+  <circle cx="20.5" cy="17.8" r="3.1" fill="#F7F3E8"/>
+</svg>
