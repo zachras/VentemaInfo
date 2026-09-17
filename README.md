@@ -13,8 +13,9 @@ assets/
   apple-touch-icon.png  Home-screen icon, 180x180.
 ```
 
-No build step, no dependencies, no JavaScript. Open a file, or serve the
-folder:
+No build step, no dependencies and no JavaScript — the one `<script>` on the
+home page is a JSON-LD block, which is metadata for search engines rather than
+code that runs. Open a file, or serve the folder:
 
 ```bash
 python3 -m http.server 4173
@@ -35,11 +36,31 @@ one thing:
 | `VentemaCard` | `.card` |
 | `StatTile` | `.stat` |
 | `PriorityBadge` / `StatusBadge` | `.badge--*` |
+| `VentemaRootView`'s four tabs | `.tabbar`, `.tabstrip` |
 
 Both light and dark values come from `VentemaColor.dynamic(light:dark:)`; the
 page follows the reader's system appearance the same way the app does. **If a
 colour changes in the Swift file, change it here too** — these are two copies
 of one palette.
+
+## What the home page draws
+
+There are no screenshots on the site. Every picture of the app is built from
+the same CSS the rest of the page uses, so it follows the reader's light or
+dark appearance and never goes stale against a redesign:
+
+- **`.device`** — the hero's iPhone. A rail, a screen at 9:19, a Dynamic
+  Island, a status bar, and then the real `.stat`, `.row` and `.badge`
+  components inside it. The tab bar carries the app's actual four tabs, in the
+  order `RootTab` declares them: Map, Plan, Groves, Settings.
+- **`.vignette`** — the four smaller panels down *How a season goes*.
+- **`.minimap`** — the inline SVG map in step one. Its pin labels are sized in
+  viewBox units, which shrink with the map, so a `max-width: 560px` query
+  scales them back up for a phone.
+- **`.ledger`** — the privacy band's "what leaves your phone" list.
+
+When there are App Store screenshots, they can replace the vignettes; the hero
+device is worth keeping either way, since it sizes itself to the column.
 
 ## The icon
 
@@ -56,8 +77,13 @@ there, regenerate both files here.**
 
 - [ ] Point `support@ventema.app` somewhere real, or replace the address in all
       three pages and the footer (`grep -rn "support@ventema.app"`).
-- [ ] Add the App Store link once the app is approved — the hero and the closing
-      section both have room for a download button.
+- [ ] Add the App Store link once the app is approved. Two HTML comments in
+      `index.html` mark the spots — the hero and the closing section — and each
+      one sits above a "Coming soon to the App Store" chip to replace
+      (`grep -n "Coming soon" index.html`).
+- [ ] Confirm the site really is served from `https://ventema.app/`. That URL is
+      written into the canonical link, `og:url` and the JSON-LD block; if the
+      domain differs, change all three (`grep -n "ventema.app/" index.html`).
 - [ ] Check the copyright year and the privacy policy's "Last updated" date.
 
 ## Deploying
