@@ -9,8 +9,8 @@ support.html    Support URL. Contact, FAQ, how to file a bug.
 privacy.html    Privacy Policy URL.
 assets/
   styles.css            The design system, ported from the app.
-  mark.svg              Wordmark and favicon.
-  apple-touch-icon.png  Home-screen icon, 180x180.
+  mark.png              Wordmark and favicon, 128x128, rounded.
+  apple-touch-icon.png  Home-screen icon, 180x180, square.
 ```
 
 No build step, no dependencies, no JavaScript. Open a file, or serve the
@@ -43,11 +43,14 @@ of one palette.
 
 ## The icon
 
-`assets/mark.svg` is the app icon, rebuilt from
-`VentemaApp/Ventema/App.icon`: the two leaf paths come from
-`Assets/ventema-leaves.svg` and the dark green field from the gradient in
-`icon.json` (`#004200` to `#004300`). `apple-touch-icon.png` is the same
-artwork, full-bleed and square, because iOS applies its own mask to it.
+`assets/mark.png` is the app icon, rebuilt from
+`VentemaApp/Ventema/App.icon`: the white olive branch is
+`Assets/Minimalist White Olive Branch 2.png` drawn at scale 0.75 and offset
+(-54.875, -27.75) points on the 1024pt canvas, over the green gradient in
+`icon.json` (`#009B00` to `#004300`, top to 70% height) — the same numbers,
+read straight out of that file. The corners are rounded the way iOS rounds
+them; `apple-touch-icon.png` is the same artwork left square and full-bleed,
+because iOS applies its own mask to it.
 
 App.icon is the original; this is a copy for the web. **If the icon changes
 there, regenerate both files here.**

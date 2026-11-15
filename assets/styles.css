@@ -174,7 +174,7 @@ a:hover { border-bottom-color: var(--olive); }
   border: 0;
 }
 
-.wordmark svg { display: block; }
+.wordmark img { display: block; }
 
 .nav {
   display: flex;
