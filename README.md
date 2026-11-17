@@ -7,14 +7,16 @@ Three static pages: the home page, and the two App Store Connect asks for —
 index.html      Home: what Ventema does, and why a farmer would want it.
 support.html    Support URL. Contact, FAQ, how to file a bug.
 privacy.html    Privacy Policy URL.
+el/             The same three pages in Greek.
+cretan/         The same three pages in Cretan dialect.
 assets/
   styles.css            The design system, ported from the app.
+  site.js               The light/dark toggle and the language menu.
   mark.png              Wordmark and favicon, 128x128, rounded.
   apple-touch-icon.png  Home-screen icon, 180x180, square.
 ```
 
-No build step, no dependencies, no JavaScript. Open a file, or serve the
-folder:
+No build step and no dependencies. Open a file, or serve the folder:
 
 ```bash
 python3 -m http.server 4173
@@ -37,9 +39,24 @@ one thing:
 | `PriorityBadge` / `StatusBadge` | `.badge--*` |
 
 Both light and dark values come from `VentemaColor.dynamic(light:dark:)`; the
-page follows the reader's system appearance the same way the app does. **If a
-colour changes in the Swift file, change it here too** — these are two copies
-of one palette.
+page follows the reader's system appearance the same way the app does, until
+they press the moon/sun button in the masthead. That choice is kept in
+`localStorage` and sets `data-theme` on `<html>`; the dark values are listed
+twice in `styles.css` (for `data-theme="dark"` and for the system setting), so
+**if a colour changes in the Swift file, change it here too, in both places** —
+these are copies of one palette.
+
+## Languages
+
+Every page exists three times: English at the root, Greek in `el/`, and Cretan
+in `cretan/`. The globe menu in the masthead links each page to its
+counterparts, so **a change to one page means the same change to its two
+siblings**. The Greek uses the app's own terms from its string catalogs —
+Βεντέμα, ελαιώνας, Περίοδος, Μαζεμένο — so the site and the app say the same
+thing. The Cretan pages are written in the dialect and address the reader as
+εσύ; they carry `lang="el"`, since Cretan has no language code of its own, and
+the Cretan privacy policy points to the Greek and English texts as the official
+ones.
 
 ## The icon
 
@@ -67,4 +84,5 @@ there, regenerate both files here.**
 
 Any static host serves it as-is. For GitHub Pages, push this folder to a
 repository and turn Pages on for the branch root; the three URLs are then
-`/`, `/support.html` and `/privacy.html`.
+`/`, `/support.html` and `/privacy.html`, with the translations under `/el/`
+and `/cretan/`.
