@@ -74,10 +74,11 @@ there, regenerate both files here.**
 
 ## Before it goes live
 
-- [ ] Point `support@ventema.app` somewhere real, or replace the address in all
-      three pages and the footer (`grep -rn "support@ventema.app"`).
-- [ ] Add the App Store link once the app is approved — the hero and the closing
-      section both have room for a download button.
+- [ ] The contact address is a personal Gmail for now. Once `ventema.app` has
+      email, switch every page and footer to `support@ventema.app`
+      (`grep -rn "@gmail.com"`).
+- [ ] Add the App Store link once the app is approved — the hero has room for a
+      download button next to "How it works".
 - [ ] Check the copyright year and the privacy policy's "Last updated" date.
 
 ## Deploying
