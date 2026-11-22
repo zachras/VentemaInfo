@@ -663,13 +663,6 @@ a:hover { border-bottom-color: var(--olive); }
 
 .specs__label { font-size: 0.8125rem; color: var(--ink-secondary); }
 
-.closing-verse {
-  margin-top: var(--xl);
-  text-align: center;
-  font-style: italic;
-  color: var(--ink-secondary);
-}
-
 @media (max-width: 860px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
